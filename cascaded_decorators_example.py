@@ -1,7 +1,6 @@
 #  author: Jothiswarooban k
 import time
-# def functionexample():
-#     print('Helo user')
+
 def decoratorlogfunc(functionpointer):
     def insidelogfunction(*args,**kwds):
 
@@ -41,4 +40,5 @@ def average(*args):
 # average_calc(1,2,3,4,5,8,6)
 c = average(1, 2, 3, 29, -10) + average(1, 2)
 print(c)
+
 
