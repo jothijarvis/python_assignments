@@ -1,7 +1,7 @@
 # Find Average of int arguments. And calculate the centroid of varying dimensional points as arguments. author: Jothiswarooban
-'''Assignment 3: Find average'''
+
 def average_calc(*args):
-    # add exception for none case
+    '''This function accepts list of integers as input'''
     if len(args) > 0:
         int_avg = sum(args)/len(args)
         return int_avg
@@ -13,8 +13,9 @@ print("Average of input number:",result)
 
 
 
-'''Assignment 4: Find centroid of varying dimensional points'''
+'''Find centroid of varying dimensional points'''
 def centroid(*args):
+    '''This function accepts a tuple with varying dimensional points list and returns the centroid of points.'''
     max_len = 0
     for point in args:
         if len(point) > max_len:
@@ -34,7 +35,8 @@ def centroid(*args):
         centroid_val.append(col_sum / len(new_points))
 
     return centroid_val
-# provide as *args
+
 # input_points = ([1, 2, 3], [5, 6], [9, 7, 6, 5, 4], [21, 34], [75], [89], [-25, 90], [2, 3, 4] , [67], [1, 2, 3], [5, 6],[21, 34], [75], [89], [-25, 90], [2, 3, 4])
 centroid_val = centroid([1, 2, 3], [5, 6], [9, 7, 6, 5, 4], [21, 34], [75], [89], [-25, 90], [2, 3, 4] , [67], [1, 2, 3], [5, 6],[21, 34], [75], [89], [-25, 90], [2, 3, 4])
+
 print("Centroid:", centroid_val)
