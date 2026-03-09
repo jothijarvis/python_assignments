@@ -1,31 +1,4 @@
-# Triangle point Generator. author: Jothiswarooban k 
-# import random
-# def triagen(p1, p2, p3):
-#     '''This function accepts points that represents a triangle'''
-#     while True:
-#         X_new = random.random()
-#         alpha = 1-X_new
-#         y_new = random.random()
-#         beta = y_new*alpha
-#         gamma = 1-alpha-beta
-#         # newpoint = [X_new,y_new]
-#         newpoint = [alpha,beta,gamma]
-    
-#         triangle_area = ((p2[1] - p3[1]) * (p1[0] - p3[0]) +(p3[0] - p2[0]) * (p1[1] - p3[1]))
-        
-#         a = ((p2[1] - p3[1]) * (newpoint[0] - p3[0]) +(p3[0] - p2[0]) * (newpoint[1] - p3[1])) / triangle_area
-#         b = ((p3[1] - p1[1]) * (newpoint[0] - p3[0]) +(p1[0] - p3[0]) * (newpoint[1] - p3[1])) / triangle_area
-#         c = 1 - a - b
-
-#         yield a,b,c
- 
-# t1 = triagen([0,0,0], [1,0,0], [1,1,0])
-# with open('triapointgen.csv', 'w') as f:
-#     for i in range(1000):
-#         pt = next(t1)
-#         print('t1:',pt)
-#         f.write(str(pt[0])+','+str(pt[1])+','+str(pt[2])+'\n')
-
+# Triangle and quad point Generator. author: Jothiswarooban k 
 def triangle_area(p1,p2,p3):
     x1,y1,z1 = p1
     x2,y2,z2 = p2
@@ -71,7 +44,8 @@ def point_is_inside(p1,p2,p3,p4):
     else:
         return True
 def quadgen(p1,p2,p3,p4):
-    '''This function accepts points in any order that define quad,triangle,or combined of 2 triangle geometry'''
+    '''This function generates a new point inside defined tria/quad quad points.
+       q1 = quadgen( [1,1,0],[0,-1,0],[0,0,0],[-1,0,0]) '''
     if point_is_inside(p1,p2,p3,p4):
         t1 = triagen(p1,p2,p4)
         t2 = triagen(p2,p3,p4)
@@ -99,4 +73,5 @@ q1 = quadgen( [1,1,0],[0,-1,0],[0,0,0],[-1,0,0])
 with open('quadpointgen.csv', 'w') as f:
     for i in range(100000):
         pt = next(q1)
+
         f.write(str(pt[0])+','+str(pt[1])+','+str(pt[2])+'\n')
